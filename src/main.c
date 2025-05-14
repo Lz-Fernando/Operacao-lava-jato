@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "structs.h"
-#include "functions.h"
+#include "../includes/structs.h"
+#include "../includes/functions.h"
 
 int main() {
-    int opcao = 0;
+    int opcao;
 
     do {
         menuPrincipal();

@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "structs.h"
-#include "functions.h"
+#include "../includes/structs.h"
+#include "../includes/functions.h"
 
 void menuPrincipal() {
     printf("1. Gerenciamento de clientes\n");
