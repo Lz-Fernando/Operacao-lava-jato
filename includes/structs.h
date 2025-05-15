@@ -6,7 +6,7 @@ typedef struct {
     int dia;
     int mes;
     int ano;
-    char hora[6]; // Formato HH:MM
+    char hora[6];
 } DataHora;
 
 typedef struct {
@@ -30,17 +30,15 @@ typedef struct {
 } PlanoFidelidade;
 
 typedef struct {
-    int id;
+    char cpf[15];
     char nome[50];
     char telefone[15];
-    int cpf;
     char email[50];
     Endereco endereco;
-    PlanoFidelidade plano;
+    char plano[15];
 } Cliente;
 
 typedef struct {
-    int id;
     char placa[10];
     char modelo[30];
     char marca[30];
