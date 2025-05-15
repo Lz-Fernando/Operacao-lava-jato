@@ -3,5 +3,6 @@
     "functions.h": "c",
     "structs.h": "c",
     "stdio.h": "c"
-  }
+  },
+  "makefile.configureOnOpen": false
 }
