@@ -54,7 +54,6 @@ void cadastrarVeiculo(Veiculo veiculos[], int *contagemVeiculos) {
         return;
     }
     Veiculo veiculo;
-    veiculo.cliente = *clienteAssociado;
 
     printf("\nInsira a placa do veiculo: ");
     scanf("%s", veiculo.placa);
@@ -77,6 +76,8 @@ void cadastrarVeiculo(Veiculo veiculos[], int *contagemVeiculos) {
     printf("\nInsira o CPF do cliente proprietário do veículo: ");
     Cliente* clienteAssociado = buscaClientePorCPF();
 
+    veiculo.cliente = *clienteAssociado;
+
     if (clienteAssociado == NULL) {
         printf("Erro: Cliente não encontrado. Veículo não será cadastrado.\n");
         return;
@@ -95,7 +96,7 @@ void cadastrarVeiculo(Veiculo veiculos[], int *contagemVeiculos) {
     printf("Cor: %s\n", veiculo.cor);
     printf("Cliente (proprietário): %s\n", veiculo.cliente.nome);
 
-    executarMenuVeiculo();
+    executarMenuVeiculos();
 }
 
 void editarCadastroVeiculo(){
@@ -110,8 +111,6 @@ void editarCadastroVeiculo(){
         printf("\nPlaca não encontrada.\n");
     } else {
         int opcao;
-
-        do {
             printf("\nVeículo encontrado. Dados atuais:\n");
             printf("1. Modelo: %s\n", veiculo->modelo);
             printf("2. Marca: %s\n", veiculo->marca);
@@ -125,57 +124,57 @@ void editarCadastroVeiculo(){
             scanf("%d", &opcao);
             getchar(); // Limpa o buffer do enter
 
-            switch (opcao) {
-                case 1:
-                    printf("Novo modelo: ");
-                    scanf("%s", veiculo->modelo);
-                    break;
-                case 2:
-                    printf("Nova marca: ");
-                    scanf("%s", veiculo->marca);
-                    break;
-                case 3:
-                    printf("Novo tipo: ");
-                    scanf("%s", veiculo->tipo);
-                    break;
-                case 4:
-                    printf("Novo ano: ");
-                    scanf("%s", veiculo->ano);
-                    break;
-                case 5:
-                    printf("Nova cor: ");
-                    scanf("%s", veiculo->cor);
-                    break;
-                case 6: {
-                    printf("Novo CPF do cliente: ");
-                    Cliente* novoCliente = buscaClientePorCPF();
-                    if (novoCliente != NULL) {
-                        veiculo->cliente = *novoCliente;
-                        printf("Cliente atualizado com sucesso.\n");
-                    } else {
-                        printf("Cliente não encontrado. Nenhuma alteração feita.\n");
-                    }
-                    break;
+        switch (opcao) {
+            case 1:
+                printf("Novo modelo: ");
+                scanf("%s", veiculo->modelo);
+                break;
+            case 2:
+                printf("Nova marca: ");
+                scanf("%s", veiculo->marca);
+                break;
+            case 3:
+                printf("Novo tipo: ");
+                scanf("%s", veiculo->tipo);
+                break;
+            case 4:
+                printf("Novo ano: ");
+                scanf("%s", veiculo->ano);
+                break;
+            case 5:
+                printf("Nova cor: ");
+                scanf("%s", veiculo->cor);
+                break;
+            case 6: {
+                printf("Novo CPF do cliente: ");
+                Cliente* novoCliente = buscaClientePorCPF();
+                if (novoCliente != NULL) {
+                    veiculo->cliente = *novoCliente;
+                    printf("Cliente atualizado com sucesso.\n");
+                } else {
+                    printf("Cliente não encontrado. Nenhuma alteração feita.\n");
                 }
-                case 7:
-                    printf("Saindo da edição...\n");
-                    break;
-                default:
-                    printf("Opção inválida. Tente novamente.\n");
+                break;
             }
+            case 7:
+                printf("Saindo da edição...\n");
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
         }
     }
-    executarMenuVeiculo();
+    
+    executarMenuVeiculos();
 }
 
 
 void printVeiculos(){
     for (int i = 0; i < contagemVeiculos; i++) {
-        printf("Cliente %d: placa = %s, Nome = %s\n", i + 1, veiculos[i].cliente.nome, veiculos[i].placa, veiculos[i].nome);
+        printf("Cliente %d: placa = %s, Nome = %s\n", i + 1, veiculos[i].cliente.nome, veiculos[i].placa, veiculos[i].modelo);
     }
 }
 
-void buscaVeiculoPorPlaca(){
+Veiculo* buscaVeiculoPorPlaca(){
     char placaBusca[8];
     scanf("%14s", placaBusca);
 
@@ -197,7 +196,7 @@ void excluirVeiculoPorPlaca() {
     }
 
     int indice = -1;
-    for (int i = 0; i < contagemVeiculo; i++) {
+    for (int i = 0; i < contagemVeiculos; i++) {
         if (&veiculos[i] == veiculo) {
             indice = i;
             break;
@@ -210,15 +209,15 @@ void excluirVeiculoPorPlaca() {
     contagemVeiculos--;
 
     printf("Veiculo com placa %s excluído com sucesso.\n", veiculo->placa);
-    executarMenuVeiculo();
+    executarMenuVeiculos();
 }
 
 void listarVeiculos() {
     printf("\n\n----- Lista de veiculos Cadastrados -----\n\n");
-    if (contagemClientes == 0) {
+    if (contagemVeiculos == 0) {
         printf("\nNenhum veiculo cadastrado.\n");
     }else{
-        for (int i = 0; i < contagemClientes; i++) {
+        for (int i = 0; i < contagemVeiculos; i++) {
             Veiculo veiculo = veiculos[i];
             printf("\nDados do Veículo:\n");
             printf("Placa: %s\n", veiculo.placa);
@@ -230,6 +229,6 @@ void listarVeiculos() {
             printf("Cliente (proprietário): %s\n", veiculo.cliente.nome);
         }
     }
-    executarMenuVeiculo();
+    executarMenuVeiculos();
 }
 
