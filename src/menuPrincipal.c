@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../includes/structs.h"
 #include "../includes/functions.h"
-
+#include <string.h>
 
 Veiculo veiculos[100];
 Servico servicos[100];
@@ -35,7 +35,7 @@ void executarMenuPrincipal() {
             executarMenuClientes();
             break;
         case 2:
-            menuVeiculos();
+            executarMenuVeiculos();
             break;
         case 3:
             menuFuncionarios();
@@ -57,14 +57,7 @@ void executarMenuPrincipal() {
 
 
 
-void menuVeiculos() {
-    printf("1. Cadastrar veículo\n");
-    printf("2. Editar veículo\n");
-    printf("3. Excluir veículo\n");
-    printf("4. Listar veículos\n");
-    printf("5. Voltar ao menu principal\n\n");
-    printf("Escolha uma opção: ");
-}
+
 
 void menuFuncionarios() {
     printf("1. Cadastrar funcionário\n");
