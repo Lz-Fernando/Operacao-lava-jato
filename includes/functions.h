@@ -10,7 +10,7 @@ void executarMenuPrincipal();
 // CLIENTES
 void menuClientes();
 void executarMenuClientes();
-void cadastrarCliente(Cliente clientes[], int *contagemIdEndereco, int *contagemClientes);
+void cadastrarCliente(Cliente clientes[], int *contagemClientes);
 void editarCadastroCliente();
 void printClientes();
 Cliente* buscaClientePorCPF(void);
@@ -29,6 +29,14 @@ void listarVeiculos();
 
 // FUNCIONARIOS
 void menuFuncionarios();
+void executarMenuFuncionarios();
+void cadastrarFuncionario(Funcionario funcionarios[], int *contagemFuncionarios);
+void editarCadastroFuncionario();
+void printFuncionarios();
+Funcionario* buscaFuncionarioPorCPF(void);
+void demitirFuncionarioPorCPF();
+void listarFuncionarios();
+void aplicarPromocaoFuncionario();
 
 // SERIVIÇOS
 void menuServicos();

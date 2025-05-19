@@ -7,7 +7,6 @@
 Cliente clientes[100];
 
 int contagemClientes = 0;
-int contagemIdEndereco = 1;
 
 void menuClientes() {
     printf("1. Cadastrar cliente\n");
@@ -28,7 +27,7 @@ void executarMenuClientes() {
 
     switch (opcao) {
         case 1:
-            cadastrarCliente(clientes, &contagemIdEndereco, &contagemClientes);
+            cadastrarCliente(clientes, &contagemClientes);
             break;
         case 2:
             editarCadastroCliente();
@@ -48,7 +47,7 @@ void executarMenuClientes() {
     }
 }
 
-void cadastrarCliente(Cliente clientes[], int *contagemIdEndereco, int *contagemClientes) {
+void cadastrarCliente(Cliente clientes[], int *contagemClientes) {
     printf("\n\n------------Cadastro do cliente------------\n\n");
     if (*contagemClientes >= 100) {
         printf("Erro: Limite de clientes atingido.\n");
@@ -71,8 +70,6 @@ void cadastrarCliente(Cliente clientes[], int *contagemIdEndereco, int *contagem
     scanf("%s", cliente.telefone);
 
     printf("\nInsira o endereco do cliente:");
-    endereco.id = *contagemIdEndereco;
-    (*contagemIdEndereco)++;
     printf("\nRua: ");
     scanf("%s", endereco.rua);
     printf("\nBairro: ");

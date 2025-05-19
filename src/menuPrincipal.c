@@ -3,14 +3,6 @@
 #include "../includes/functions.h"
 #include <string.h>
 
-Veiculo veiculos[100];
-Servico servicos[100];
-PlanoFidelidade planosFidelidade[100];
-Funcionario funcionarios[100];
-Agendamento agendamento[100];
-Pagamento pagamentos[100];
-RegistroServico registros[100];
-
 // MENU PRINCIPAL
 void menuPrincipal() {
     printf("1. Gerenciamento de clientes\n");
@@ -38,7 +30,7 @@ void executarMenuPrincipal() {
             executarMenuVeiculos();
             break;
         case 3:
-            menuFuncionarios();
+            executarMenuFuncionarios();
             break;
         case 4:
             menuServicos();
@@ -53,19 +45,6 @@ void executarMenuPrincipal() {
             printf("Opção inválida! Tente novamente.\n\n");
             executarMenuPrincipal();
     }
-}
-
-
-
-
-
-void menuFuncionarios() {
-    printf("1. Cadastrar funcionário\n");
-    printf("2. Editar funcionário\n");
-    printf("3. Excluir funcionário\n");
-    printf("4. Listar funcionários\n");
-    printf("5. Voltar ao menu principal\n\n");
-    printf("Escolha uma opção: ");
 }
 
 void menuServicos() {

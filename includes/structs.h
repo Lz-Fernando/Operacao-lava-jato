@@ -10,7 +10,12 @@ typedef struct {
 } DataHora;
 
 typedef struct {
-    int id;
+    char nome[50];
+    float salario;
+    char cargaHoraria[20];
+} cargoFuncao;
+
+typedef struct {
     char rua[50];
     char bairro[30];
     char cidade[30];
@@ -58,11 +63,12 @@ typedef struct {
 } Servico;
 
 typedef struct {
-    int id;
+    char cpf[15];
     char nome[50];
-    char cargo[30];
+    char email[50];
     char telefone[15];
-    float salario;
+    cargoFuncao cargo;
+    Endereco endereco;
 } Funcionario;
 
 typedef struct {
