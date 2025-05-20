@@ -55,11 +55,12 @@ typedef struct {
 
 typedef struct {
     int id;
-    char tipo[30];
+    char nome[50];
     int duracao;
     float preco;
     int pontosGerados;
-    int pontosNecessarios;
+    int pontosNecessariosDesconto25;
+    int pontosNecessariosDesconto50;
 } Servico;
 
 typedef struct {

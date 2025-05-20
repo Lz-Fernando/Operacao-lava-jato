@@ -33,7 +33,7 @@ void executarMenuPrincipal() {
             executarMenuFuncionarios();
             break;
         case 4:
-            menuServicos();
+            executarMenuServicos();
             break;
         case 5:
             menuRelatorios();
@@ -47,14 +47,7 @@ void executarMenuPrincipal() {
     }
 }
 
-void menuServicos() {
-    printf("1. Cadastrar serviço\n");
-    printf("2. Editar serviço\n");
-    printf("3. Excluir serviço\n");
-    printf("4. Listar serviços\n");
-    printf("5. Voltar ao menu principal\n\n");
-    printf("Escolha uma opção: ");
-}
+
 
 void menuRelatorios() {
     printf("1. Relatório de serviços realizados\n");

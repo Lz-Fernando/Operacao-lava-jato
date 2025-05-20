@@ -40,6 +40,13 @@ void aplicarPromocaoFuncionario();
 
 // SERIVIÇOS
 void menuServicos();
+void executarMenuServicos();
+void cadastrarServico(Servico servicos[], int *contagemServicos, int *contagemIdServicos);
+void editarCadastroServico();
+void printServicos();
+Servico* buscaServicoPorId(void);
+void excluirServicosPorId();
+void listarServicos();
 
 // RELATORIOS
 void menuRelatorios();

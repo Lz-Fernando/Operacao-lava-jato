@@ -184,6 +184,7 @@ void editarCadastroFuncionario() {
                 while (getchar() != '\n'); 
                 break;
             case 0:
+                executarMenuFuncionarios();
                 break;
             default:
                 printf("Opção inválida! Tente novamente.\n\n");
