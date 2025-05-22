@@ -38,7 +38,7 @@ void demitirFuncionarioPorCPF();
 void listarFuncionarios();
 void aplicarPromocaoFuncionario();
 
-// SERIVIÇOS
+// SERVIÇOS
 void menuServicos();
 void executarMenuServicos();
 void cadastrarServico(Servico servicos[], int *contagemServicos, int *contagemIdServicos);
@@ -47,6 +47,18 @@ void printServicos();
 Servico* buscaServicoPorId(void);
 void excluirServicoPorId();
 void listarServicos();
+
+// DATA E HORA
+void preencherDataHora(DataHora *dataHora);
+
+// AGENDAMENTOS
+void menuAgendamentos();
+void executarMenuAgendamentos();
+void cadastrarAgendamento(Agendamento agendamentos[], int *contagemAgendamentos);
+void editarCadastroAgendamento();
+void excluirAgendamentoPorID();
+void listarAgendamentos();
+void alterarStatusAgendamento();
 
 // RELATORIOS
 void menuRelatorios();
