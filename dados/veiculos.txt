@@ -1,0 +1,2 @@
+ABC1234;Onix;Chevrolet;Hatch;2019;Prata;12345678900
+XYZ9876;Corolla;Toyota;Sedan;2021;Preto;98765432100

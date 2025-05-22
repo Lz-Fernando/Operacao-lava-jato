@@ -1,0 +1,2 @@
+1;Carlos Mendes;Gerente;40;12345678901;Rua C;Centro;CidadeZ;EstadoW;11111000;10
+2;Ana Paula;Atendente;30;10987654321;Rua D;BairroD;CidadeW;EstadoV;22222000;20

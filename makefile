@@ -1,5 +1,5 @@
 CC = gcc
-SRC = ./src/main.c ./src/menuPrincipal.c ./src/clientes.c ./src/funcionarios.c ./src/veiculos.c
+SRC = ./src/main.c ./src/menuPrincipal.c ./src/clientes.c ./src/funcionarios.c ./src/veiculos.c ./src/servicos.c ./src/carregarDados.c
 OUT = programa.exe
 
 all: 

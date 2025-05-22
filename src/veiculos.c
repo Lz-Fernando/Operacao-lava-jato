@@ -17,6 +17,10 @@ void menuVeiculos() {
 }
 
 void executarMenuVeiculos() {
+    if (contagemVeiculos == 0) {
+        carregarVeiculos(veiculos, &contagemVeiculos);
+    }
+    
     int opcao = 0;
 
     menuVeiculos();

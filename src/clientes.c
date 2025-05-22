@@ -3,9 +3,9 @@
 #include "../includes/functions.h"
 #include <string.h>
 
+#define MAX_CLIENTES 100
 
-Cliente clientes[100];
-
+Cliente clientes[MAX_CLIENTES];
 int contagemClientes = 0;
 
 void menuClientes() {
@@ -18,6 +18,10 @@ void menuClientes() {
 }
 
 void executarMenuClientes() {
+    if (contagemClientes == 0) {
+        carregarClientes(clientes, &contagemClientes);
+    }
+
     int opcao = 0;
 
     menuClientes();

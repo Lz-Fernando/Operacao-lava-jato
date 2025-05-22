@@ -45,10 +45,16 @@ void cadastrarServico(Servico servicos[], int *contagemServicos, int *contagemId
 void editarCadastroServico();
 void printServicos();
 Servico* buscaServicoPorId(void);
-void excluirServicosPorId();
+void excluirServicoPorId();
 void listarServicos();
 
 // RELATORIOS
 void menuRelatorios();
+
+// CARREGAR DADOS
+int carregarClientes(Cliente clientes[], int *contagemClientes);
+int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos);
+int carregarFuncionarios(Funcionario Funcionarios[], int *contagemFuncionarios);
+int carregarServicos(Servico servicos[], int *contagemServicos, int *contagemIdServicos);
 
 #endif // FUNCTIONS_H

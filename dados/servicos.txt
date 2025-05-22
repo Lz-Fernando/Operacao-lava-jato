@@ -1,0 +1,2 @@
+1;Lavagem Simples;30;50.00;25;50
+2;Polimento;60;120.00;60;120

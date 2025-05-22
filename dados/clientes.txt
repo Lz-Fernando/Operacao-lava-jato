@@ -1,0 +1,2 @@
+12345678900;Joao Silva;11999999999;joao@email.com;Rua A;Centro;CidadeX;EstadoY;12345000;100;BASICO
+98765432100;Maria Souza;11888888888;maria@email.com;Rua B;BairroB;CidadeY;EstadoZ;54321000;200;PREMIUM

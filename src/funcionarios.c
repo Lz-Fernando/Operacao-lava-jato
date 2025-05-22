@@ -19,6 +19,10 @@ void menuFuncionarios() {
 }
 
 void executarMenuFuncionarios() {
+    if (contagemFuncionarios == 0) {
+        carregarFuncionarios(funcionarios, &contagemFuncionarios);
+    }
+
     int opcao = 0;
 
     menuFuncionarios();
