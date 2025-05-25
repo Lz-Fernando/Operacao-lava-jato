@@ -20,7 +20,7 @@ void menuServicos() {
 
 void executarMenuServicos() {
     if (contagemServicos == 0) {
-        carregarClientes(clientes, &contagemClientes, &contagemIdServicos);
+        carregarServicos(servicos,&contagemServicos,&contagemIdServicos);
     }
 
     int opcao = 0;
@@ -204,7 +204,7 @@ void listarServicos() {
     if (contagemServicos == 0) {
         printf("\nNenhum Serviço cadastrado.\n");
     } else {
-        for (int i = 0; i < contagemservicos; i++) {
+        for (int i = 0; i < contagemServicos; i++) {
             Servico currentServico = servicos[i];
             printf("Id: %d\n", currentServico.id);
             printf("Nome: %s\n", currentServico.nome);

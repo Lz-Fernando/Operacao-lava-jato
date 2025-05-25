@@ -48,7 +48,7 @@ typedef struct {
     char modelo[30];
     char marca[30];
     char tipo[20];
-    int ano;
+    char ano[20];
     char cor[20];
     Cliente cliente;
 } Veiculo;

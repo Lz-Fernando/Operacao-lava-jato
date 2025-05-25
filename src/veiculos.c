@@ -3,8 +3,9 @@
 #include "../includes/functions.h"
 #include <string.h>
 
+#define MAX_VEICULOS 100
 
-Veiculo veiculos[100];
+Veiculo veiculos[MAX_VEICULOS];
 int contagemVeiculos = 0;
 
 void menuVeiculos() {

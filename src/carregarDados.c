@@ -34,12 +34,12 @@ int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos) {
     return 0;
   }
   *contagemVeiculos = 0;
-  while (fscanf(file, "%9[^;];%29[^;];%29[^;];%19[^;];%d14[^;];%19[^;];%14[^\n]\n",
+  while (fscanf(file, "%9[^;];%29[^;];%29[^;];%19[^;];%d;%19[^;];%14[^\n]\n",
     veiculos[*contagemVeiculos].placa,
     veiculos[*contagemVeiculos].modelo,
     veiculos[*contagemVeiculos].marca,
     veiculos[*contagemVeiculos].tipo,
-    veiculos[*contagemVeiculos].ano,
+    &veiculos[*contagemVeiculos].ano,
     veiculos[*contagemVeiculos].cor,
     veiculos[*contagemVeiculos].cliente
   ) == 7) {
@@ -55,7 +55,7 @@ int carregarFuncionarios(Funcionario Funcionarios[], int *contagemFuncionarios) 
     printf("Arquivo de funcionarios não encontrado.\n");
     return 0;
   }
-  *contagemFuncionarioss = 0;
+  *contagemFuncionarios = 0;
   while (fscanf(file, "%14[^;];%49[^;];%49[^;];%14[^;];%49[^;];%29[^;];%29[^;];%29[^;];%9[^;];%d;%14[^\n];%49[^\n];%f20[^\n];%19[^\n]\n",
     Funcionarios[*contagemFuncionarios].cpf,
     Funcionarios[*contagemFuncionarios].nome,
@@ -92,7 +92,7 @@ int carregarServicos(Servico servicos[], int *contagemServicos, int *contagemIdS
     &servicos[*contagemServicos].preco,
     &servicos[*contagemServicos].pontosGerados,
     &servicos[*contagemServicos].pontosNecessariosDesconto25,
-    &servicos[*contagemServicos].pontosNecessariosDesconto50,
+    &servicos[*contagemServicos].pontosNecessariosDesconto50
   ) == 7) {
     (*contagemServicos)++;
     if (servicos[*contagemServicos - 1].id >= *contagemIdServicos) {
@@ -100,5 +100,5 @@ int carregarServicos(Servico servicos[], int *contagemServicos, int *contagemIdS
     }
   }
   fclose(file);
-  return *contagemServicos *contagemIdServicos;
+  return *contagemServicos;
 }
