@@ -81,7 +81,7 @@ void cadastrarAgendamento(Agendamento agendamentos[], int *contagemAgendamentos)
     Servico* servicoSelecionado = buscaServicoPorId();
     if (!servicoSelecionado) { printf("\nServiço não encontrado.\n"); return; }
 
-    // NOVO: Escolher funcionário responsável
+    // Adicionei funcionário, percebi que estava sem
     printf("\nEscolha o funcionário responsável:\n");
     listarFuncionarios();
     printf("\nInsira o CPF do funcionário responsável: ");
