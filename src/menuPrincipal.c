@@ -5,10 +5,10 @@
 
 // MENU PRINCIPAL
 void menuPrincipal() {
-    printf("1. Gerenciamento de clientes\n");
-    printf("2. Gerenciamento de veículos\n");
+    printf("1. Gerenciamento de Clientes\n");
+    printf("2. Gerenciamento de Veículos\n");
     printf("3. Gerenciamento de Funcionários\n");
-    printf("4. Gerenciamento de serviços\n");
+    printf("4. Gerenciamento de Serviços\n");
     printf("5. Gerenciamento de Agendamentos\n");
     printf("6. Gerenciamento de Pagamentos\n");
     printf("7. Obter Relatórios\n");
