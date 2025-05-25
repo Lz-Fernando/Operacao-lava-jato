@@ -82,9 +82,11 @@ typedef struct {
 } Agendamento;
 
 typedef struct {
+    int id;
     float valor;
     char formaPagamento[20];
     char status[20];
+    DataHora data;
     Agendamento agendamento;
 } Pagamento;
 
