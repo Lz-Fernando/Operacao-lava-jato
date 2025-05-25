@@ -64,9 +64,9 @@ void cadastrarAgendamento(Agendamento agendamentos[], int *contagemAgendamentos)
     printf("\nEscolha o cliente:\n");
     buscaClientePorCPF();
     printf("\nInsira o CPF do cliente: ");
-
     Cliente* clienteSelecionado = buscaClientePorCPF();
     if (!clienteSelecionado) { printf("\nCliente não encontrado.\n"); return; }
+
     printf("\nEscolha o veiculo:\n");
     buscaVeiculoPorPlaca();
     printf("\nInsira a placa do veiculo: ");
@@ -74,12 +74,20 @@ void cadastrarAgendamento(Agendamento agendamentos[], int *contagemAgendamentos)
     //Tive problemas com a função de buscaVeiculoPorPlaca
     Veiculo* veiculoSelecionado = buscaVeiculoPorPlaca();
     if (!veiculoSelecionado) { printf("\nVeículo não encontrado.\n"); return; }
+
     printf("\nEscolha o servico:\n");
     buscaServicoPorId();
     printf("\nInsira o Id do serviço: ");
-
     Servico* servicoSelecionado = buscaServicoPorId();
     if (!servicoSelecionado) { printf("\nServiço não encontrado.\n"); return; }
+
+    // NOVO: Escolher funcionário responsável
+    printf("\nEscolha o funcionário responsável:\n");
+    listarFuncionarios();
+    printf("\nInsira o CPF do funcionário responsável: ");
+    Funcionario* funcionarioSelecionado = buscaFuncionarioPorCPF();
+    if (!funcionarioSelecionado) { printf("\nFuncionário não encontrado.\n"); return; }
+
     preencherDataHora(&dataHora);
 
     printf("\nInsira o status do agendamento: 1. Pendente 2. Confirmado 3. Cancelado\nEscolha uma opção: ");
@@ -92,6 +100,7 @@ void cadastrarAgendamento(Agendamento agendamentos[], int *contagemAgendamentos)
     agendamentos[idx].cliente = *clienteSelecionado;
     agendamentos[idx].veiculo = *veiculoSelecionado;
     agendamentos[idx].servico = *servicoSelecionado;
+    agendamentos[idx].funcionario = *funcionarioSelecionado;
     agendamentos[idx].dataHora = dataHora;
     switch (opcaoStatus) {
         case 1: strcpy(agendamentos[idx].status, "Pendente"); break;
