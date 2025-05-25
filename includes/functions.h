@@ -69,4 +69,11 @@ int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos);
 int carregarFuncionarios(Funcionario Funcionarios[], int *contagemFuncionarios);
 int carregarServicos(Servico servicos[], int *contagemServicos, int *contagemIdServicos);
 
+// PAGAMENTOS
+void menuPagamentos();
+void executarMenuPagamentos();
+void cadastrarPagamento(void);
+void listarPagamentos(void);
+void alterarStatusPagamento(void);
+
 #endif // FUNCTIONS_H
