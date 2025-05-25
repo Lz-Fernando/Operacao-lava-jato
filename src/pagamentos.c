@@ -123,7 +123,15 @@ void cadastrarPagamento() {
         return;
     }
     novoPagamento.agendamento = *ag;
-
+    preencherDataHora(&novoPagamento.agendamento.dataHora);
+    printf("Agendamento encontrado: ID %d, Cliente %s\n", novoPagamento.agendamento.id, novoPagamento.agendamento.cliente.nome);
+    printf("Data e hora do agendamento: %02d/%02d/%04d %s\n", 
+           novoPagamento.agendamento.dataHora.dia, 
+           novoPagamento.agendamento.dataHora.mes, 
+           novoPagamento.agendamento.dataHora.ano, 
+           novoPagamento.agendamento.dataHora.hora);
+    printf("Status do agendamento: %s\n", novoPagamento.agendamento.status);
+    
     pagamentos[contagemPagamentos++] = novoPagamento;
     printf("Pagamento cadastrado com sucesso!\n");
 }
@@ -145,6 +153,7 @@ void listarPagamentos() {
         printf("Status: %s\n", p.status);
         printf("Agendamento ID: %d\n", p.agendamento.id);
         printf("Cliente: %s\n", p.agendamento.cliente.nome);
+        printf("Data do pagamento: %02d/%02d/%04d %s\n", p.data.dia, p.data.mes, p.data.ano, p.data.hora);
     }
 }
 
