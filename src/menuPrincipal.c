@@ -10,8 +10,9 @@ void menuPrincipal() {
     printf("3. Gerenciamento de Funcionários\n");
     printf("4. Gerenciamento de serviços\n");
     printf("5. Gerenciamento de Agendamentos\n");
-    printf("6. Obter Relatórios\n");
-    printf("7. Exit\n\n");
+    printf("6. Gerenciamento de Pagamentos\n");
+    printf("7. Obter Relatórios\n");
+    printf("8. Exit\n\n");
     printf("Escolha uma opção: ");
 }
 
@@ -40,9 +41,12 @@ void executarMenuPrincipal() {
             executarMenuAgendamentos();
             break;
         case 6:
-            menuRelatorios();
+            executarMenuPagamentos();
             break;
         case 7:
+            menuRelatorios();
+            break;
+        case 8:
             printf("Saindo do programa...\n");
             break;
         default:
