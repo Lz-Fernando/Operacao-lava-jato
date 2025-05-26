@@ -59,6 +59,7 @@ void editarCadastroAgendamento();
 void excluirAgendamentoPorID();
 void listarAgendamentos();
 void alterarStatusAgendamento();
+Agendamento* buscaAgendamentoPorId(void);
 
 // RELATORIOS
 void menuRelatorios();
