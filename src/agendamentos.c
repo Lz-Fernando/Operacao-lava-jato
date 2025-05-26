@@ -6,10 +6,18 @@
 Agendamento agendamentos[100];
 int contagemAgendamentos = 0;
 
-static Agendamento* buscaAgendamentoPorID(int id) {
-    for (int i = 0; i < contagemAgendamentos; i++)
-        if (agendamentos[i].id == id)
+Agendamento* buscaAgendamentoPorID(int id) {
+
+    printf("Agendamentos cadastrados:\n");
+        for (int i = 0; i < contagemAgendamentos; i++) {
+            printf("ID: %d\n", agendamentos[i].id);
+        }
+
+    for (int i = 0; i < contagemAgendamentos; i++) {
+        if (agendamentos[i].id == id) {
             return &agendamentos[i];
+        }
+    }
     return NULL;
 }
 
@@ -53,13 +61,7 @@ void cadastrarAgendamento(Agendamento agendamentos[], int *contagemAgendamentos)
         return;
     }
 
-    //Deixei data e hora manual para o usuário preencher
-    //Criei uma função para preencher a data e hora
     DataHora dataHora;
-
-    // Tentei fazer uma lista de clientes, veículos e serviços
-    // contudo acaba voltando para o menu de cliente, veículo e serviço
-    // troquei para a função de busca, mas não lista
 
     printf("\nInsira o CPF do cliente: ");
     Cliente* clienteSelecionado = buscaClientePorCPF();
@@ -170,12 +172,6 @@ void editarCadastroAgendamento() {
 }
 
 void alterarStatusAgendamento() {
-
-    listarAgendamentos();
-    if (contagemAgendamentos == 0) {
-        printf("\nNenhum agendamento cadastrado.\n");
-        return;
-    }
     
     printf("\n\n----- Alterar Status do Agendamento -----\n\n");
     printf("Para alterar o status, insira o ID do agendamento:\n");
@@ -183,16 +179,12 @@ void alterarStatusAgendamento() {
     scanf("%d", &idBusca);
     while (getchar() != '\n');
 
-    Agendamento* agendamento = NULL;
-    for (int i = 0; i < contagemAgendamentos; i++) {
-        if (agendamentos[i].id == idBusca) {
-            agendamento = &agendamentos[i];
-            break;
-        }
-    }
+    Agendamento* agendamento = buscaAgendamentoPorID(idBusca);
 
     if (!agendamento) {
         printf("\nID não encontrado.\n");
+        printf("Veja a lista de agendamentos cadastrados:\n");
+        listarAgendamentos();
         return;
     }
 
@@ -214,26 +206,27 @@ void alterarStatusAgendamento() {
 }
 
 void excluirAgendamentoPorID() {
-
-    listarAgendamentos();
-    if (contagemAgendamentos == 0) {
-        printf("\nNenhum agendamento cadastrado.\n");
-        return;
-    }
-
-    printf("\nPara excluir o agendamento, insira o ID:\n");
+    printf("Insira o ID do agendamento para excluir: ");
     int idBusca;
     scanf("%d", &idBusca);
     while (getchar() != '\n');
 
+    Agendamento* agendamento = buscaAgendamentoPorID(idBusca);
+
+    if (!agendamento) {
+        printf("\nAgendamento não encontrado.\n");
+        listarAgendamentos();
+        return;
+    }
+
     int indice = -1;
     for (int i = 0; i < contagemAgendamentos; i++)
-        if (agendamentos[i].id == idBusca) { indice = i; break; }
+        if (agendamentos[i].id == agendamento->id) { indice = i; break; }
     if (indice == -1) { printf("\nID não encontrado.\n"); return; }
     for (int j = indice; j < contagemAgendamentos - 1; j++)
         agendamentos[j] = agendamentos[j + 1];
     contagemAgendamentos--;
-    printf("Agendamento com ID %d excluído com sucesso.\n", idBusca);
+    printf("Agendamento com ID %d excluído com sucesso.\n", agendamento->id);
 }
 
 void listarAgendamentos() {
@@ -254,6 +247,5 @@ void listarAgendamentos() {
             printf("Status: %s\n", agendamento.status);
         }
     }
-
     executarMenuAgendamentos();
 }
