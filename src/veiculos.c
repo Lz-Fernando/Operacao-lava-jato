@@ -5,6 +5,9 @@
 
 #define MAX_VEICULOS 100
 
+extern int contagemClientes;
+extern Cliente clientes[];
+
 Veiculo veiculos[MAX_VEICULOS];
 int contagemVeiculos = 0;
 
@@ -19,36 +22,34 @@ void menuVeiculos() {
 
 void executarMenuVeiculos() {
     if (contagemVeiculos == 0) {
-        carregarVeiculos(veiculos, &contagemVeiculos);
+        carregarVeiculos(veiculos, &contagemVeiculos, clientes, &contagemClientes);
     }
-    
+
     int opcao = 0;
+    do {
+        menuVeiculos();
+        scanf("%d", &opcao);
+        while (getchar() != '\n');
 
-    menuVeiculos();
-    scanf("%d", &opcao);
-
-    while (getchar() != '\n');
-
-    switch (opcao) {
-        case 1:
-            cadastrarVeiculo(veiculos, &contagemVeiculos);
-            break;
-        case 2:
-            editarCadastroVeiculo();
-            break;
-        case 3:
-            excluirVeiculoPorPlaca();
-            break;
-        case 4:
-            listarVeiculos();
-            break;
-        case 5:
-            executarMenuPrincipal();
-            break;
-        default:
-            printf("Opção inválida! Tente novamente.\n\n");
-            executarMenuVeiculos();
-    }
+        switch (opcao) {
+            case 1:
+                cadastrarVeiculo(veiculos, &contagemVeiculos);
+                break;
+            case 2:
+                editarCadastroVeiculo();
+                break;
+            case 3:
+                excluirVeiculoPorPlaca();
+                break;
+            case 4:
+                listarVeiculos();
+                break;
+            case 5:
+                executarMenuPrincipal();
+            default:
+                printf("Opção inválida! Tente novamente.\n\n");
+        }
+    } while (opcao != 5);
 }
 
 void cadastrarVeiculo(Veiculo veiculos[], int *contagemVeiculos) {
@@ -81,11 +82,11 @@ void cadastrarVeiculo(Veiculo veiculos[], int *contagemVeiculos) {
     printf("\nInsira o CPF do cliente proprietário do veículo: ");
     Cliente* clienteAssociado = buscaClientePorCPF();
 
-    veiculo.cliente = *clienteAssociado;
-
     if (clienteAssociado == NULL) {
         printf("Erro: Cliente não encontrado. Veículo não será cadastrado.\n");
         return;
+    } else {
+        veiculo.cliente = *clienteAssociado;
     }
 
     veiculos[*contagemVeiculos] = veiculo;
@@ -100,8 +101,6 @@ void cadastrarVeiculo(Veiculo veiculos[], int *contagemVeiculos) {
     printf("Ano: %s\n", veiculo.ano);
     printf("Cor: %s\n", veiculo.cor);
     printf("Cliente (proprietário): %s\n", veiculo.cliente.nome);
-
-    executarMenuVeiculos();
 }
 
 void editarCadastroVeiculo(){
@@ -168,14 +167,12 @@ void editarCadastroVeiculo(){
                 printf("Opção inválida. Tente novamente.\n");
         }
     }
-    
-    executarMenuVeiculos();
 }
 
 
 void printVeiculos(){
     for (int i = 0; i < contagemVeiculos; i++) {
-        printf("Cliente %d: placa = %s, Nome = %s\n", i + 1, veiculos[i].cliente.nome, veiculos[i].placa, veiculos[i].modelo);
+        printf("Veículo %d: placa = %s, Proprietário = %s, Modelo = %s\n", i+1, veiculos[i].placa, veiculos[i].cliente.nome, veiculos[i].modelo);
     }
 }
 
@@ -198,6 +195,7 @@ void excluirVeiculoPorPlaca() {
 
     if (veiculo == NULL) {
         printf("\nPlaca não encontrado.\n");
+        return;
     }
 
     int indice = -1;
@@ -214,7 +212,6 @@ void excluirVeiculoPorPlaca() {
     contagemVeiculos--;
 
     printf("Veiculo com placa %s excluído com sucesso.\n", veiculo->placa);
-    executarMenuVeiculos();
 }
 
 void listarVeiculos() {
@@ -234,6 +231,4 @@ void listarVeiculos() {
             printf("Cliente (proprietário): %s\n", veiculo.cliente.nome);
         }
     }
-    executarMenuVeiculos();
 }
-

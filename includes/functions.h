@@ -62,10 +62,12 @@ void alterarStatusAgendamento();
 
 // RELATORIOS
 void menuRelatorios();
+void executarMenuRelatorios();
+void relatorioCliente(Cliente clientes[], int qtdClientes, Agendamento agendamentos[], int qtdAgendamentos);
 
 // CARREGAR DADOS
 int carregarClientes(Cliente clientes[], int *contagemClientes);
-int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos);
+int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos, Cliente clientes[], int *contagemClientes);
 int carregarFuncionarios(Funcionario Funcionarios[], int *contagemFuncionarios);
 int carregarServicos(Servico servicos[], int *contagemServicos, int *contagemIdServicos);
 

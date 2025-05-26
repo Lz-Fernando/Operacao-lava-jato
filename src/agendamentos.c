@@ -61,29 +61,20 @@ void cadastrarAgendamento(Agendamento agendamentos[], int *contagemAgendamentos)
     // contudo acaba voltando para o menu de cliente, veículo e serviço
     // troquei para a função de busca, mas não lista
 
-    printf("\nEscolha o cliente:\n");
-    buscaClientePorCPF();
     printf("\nInsira o CPF do cliente: ");
     Cliente* clienteSelecionado = buscaClientePorCPF();
     if (!clienteSelecionado) { printf("\nCliente não encontrado.\n"); return; }
 
-    printf("\nEscolha o veiculo:\n");
-    buscaVeiculoPorPlaca();
     printf("\nInsira a placa do veiculo: ");
-
     //Tive problemas com a função de buscaVeiculoPorPlaca
     Veiculo* veiculoSelecionado = buscaVeiculoPorPlaca();
     if (!veiculoSelecionado) { printf("\nVeículo não encontrado.\n"); return; }
 
-    printf("\nEscolha o servico:\n");
-    buscaServicoPorId();
     printf("\nInsira o Id do serviço: ");
     Servico* servicoSelecionado = buscaServicoPorId();
     if (!servicoSelecionado) { printf("\nServiço não encontrado.\n"); return; }
 
     // Adicionei funcionário, percebi que estava sem
-    printf("\nEscolha o funcionário responsável:\n");
-    listarFuncionarios();
     printf("\nInsira o CPF do funcionário responsável: ");
     Funcionario* funcionarioSelecionado = buscaFuncionarioPorCPF();
     if (!funcionarioSelecionado) { printf("\nFuncionário não encontrado.\n"); return; }
@@ -263,4 +254,6 @@ void listarAgendamentos() {
             printf("Status: %s\n", agendamento.status);
         }
     }
+
+    executarMenuAgendamentos();
 }

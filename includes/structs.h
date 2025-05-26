@@ -77,6 +77,7 @@ typedef struct {
     Cliente cliente;
     Veiculo veiculo;
     Servico servico;
+    Funcionario funcionario;
     DataHora dataHora;
     char status[20];
 } Agendamento;
@@ -89,14 +90,5 @@ typedef struct {
     DataHora data;
     Agendamento agendamento;
 } Pagamento;
-
-typedef struct {
-    int id;
-    Funcionario funcionario;
-    Servico servico;
-    Veiculo veiculo;
-    DataHora data;
-    char observacoes[100];
-} RegistroServico;
 
 #endif // STRUCTS_H

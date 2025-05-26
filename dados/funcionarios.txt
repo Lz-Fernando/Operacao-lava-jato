@@ -1,2 +1,2 @@
-1;Carlos Mendes;Gerente;40;12345678901;Rua C;Centro;CidadeZ;EstadoW;11111000;10
-2;Ana Paula;Atendente;30;10987654321;Rua D;BairroD;CidadeW;EstadoV;22222000;20
+12345678901;Carlos Mendes;carlos@email.com;11999999999;Rua C;Centro;CidadeZ;EstadoW;11111000;10;Mecanico;2000.00;30
+10987654321;Ana Paula;ana@email.com;11888888888;Rua D;BairroD;CidadeW;EstadoV;22222000;20;Lavador;3000.00;30

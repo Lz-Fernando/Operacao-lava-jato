@@ -44,24 +44,13 @@ void executarMenuPrincipal() {
             executarMenuPagamentos();
             break;
         case 7:
-            menuRelatorios();
+            executarMenuRelatorios();
             break;
         case 8:
             printf("Saindo do programa...\n");
-            break;
+            return;
         default:
             printf("Opção inválida! Tente novamente.\n\n");
             executarMenuPrincipal();
     }
-}
-
-
-
-void menuRelatorios() {
-    printf("1. Relatório de serviços realizados\n");
-    printf("2. Relatório de clientes\n");
-    printf("3. Relatório de funcionários\n");
-    printf("4. Relatório de pagamentos\n");
-    printf("5. Voltar ao menu principal\n\n");
-    printf("Escolha uma opção: ");
 }

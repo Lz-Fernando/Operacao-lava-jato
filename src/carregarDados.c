@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "../includes/structs.h"
 
 int carregarClientes(Cliente clientes[], int *contagemClientes) {
@@ -27,13 +28,15 @@ int carregarClientes(Cliente clientes[], int *contagemClientes) {
   return *contagemClientes;
 }
 
-int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos) {
+int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos, Cliente clientes[], int contagemClientes) {
   FILE *file = fopen("./dados/veiculos.txt", "r");
   if (!file) {
     printf("Arquivo de veiculos não encontrado.\n");
     return 0;
   }
   *contagemVeiculos = 0;
+  char cpfCliente[15];
+
   while (fscanf(file, "%9[^;];%29[^;];%29[^;];%19[^;];%d;%19[^;];%14[^\n]\n",
     veiculos[*contagemVeiculos].placa,
     veiculos[*contagemVeiculos].modelo,
@@ -41,10 +44,21 @@ int carregarVeiculos(Veiculo veiculos[], int *contagemVeiculos) {
     veiculos[*contagemVeiculos].tipo,
     &veiculos[*contagemVeiculos].ano,
     veiculos[*contagemVeiculos].cor,
-    veiculos[*contagemVeiculos].cliente
-  ) == 7) {
-    (*contagemVeiculos)++;
-  }
+    cpfCliente
+    ) == 7) {
+      // Buscar cliente pelo CPF
+      int achou = 0;
+      for (int i = 0; i < contagemClientes; i++) {
+        if (strcmp(clientes[i].cpf, cpfCliente) == 0) {
+          veiculos[*contagemVeiculos].cliente = clientes[i];
+          achou = 1;
+          break;
+        }
+      }
+      if (achou) {
+        (*contagemVeiculos)++;
+      }
+    }
   fclose(file);
   return *contagemVeiculos;
 }
@@ -56,7 +70,7 @@ int carregarFuncionarios(Funcionario Funcionarios[], int *contagemFuncionarios) 
     return 0;
   }
   *contagemFuncionarios = 0;
-  while (fscanf(file, "%14[^;];%49[^;];%49[^;];%14[^;];%49[^;];%29[^;];%29[^;];%29[^;];%9[^;];%d;%14[^\n];%49[^\n];%f20[^\n];%19[^\n]\n",
+  while (fscanf(file, "%14[^;];%49[^;];%49[^;];%14[^;];%49[^;];%29[^;];%29[^;];%29[^;];%9[^;];%d;%49[^;];%f;%19[^\n]\n",
     Funcionarios[*contagemFuncionarios].cpf,
     Funcionarios[*contagemFuncionarios].nome,
     Funcionarios[*contagemFuncionarios].email,
@@ -85,7 +99,7 @@ int carregarServicos(Servico servicos[], int *contagemServicos, int *contagemIdS
   }
   *contagemServicos = 0;
   *contagemIdServicos = 0;
-  while (fscanf(file, "%d14[^;];%49[^;];%d14[^;];%f19[^;];%d14[^;];%d14[^;];%d14[^;][^\n]\n",
+  while (fscanf(file, "%d;%49[^;];%d;%f;%d;%d;%d[^\n]\n",
     &servicos[*contagemServicos].id,
     servicos[*contagemServicos].nome,
     &servicos[*contagemServicos].duracao,
